@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import SpaceshipHUD from "./SpaceshipHUD";
+import StatusHUD from "./StatusHUD";
 
 // ✅ define once, outside the component
 const phrases = [
@@ -46,7 +48,7 @@ export default function Hero() {
   }, [text, typing, phraseIndex]);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center text-white">
+    <section className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden">
       {/* Grid Overlay */}
       <div
         className="absolute inset-0 -z-10"
@@ -63,6 +65,17 @@ export default function Hero() {
         }}
       />
 
+      {/* === Left HUD (Spaceship) === */}
+      <div className="absolute left-20 top-110 -translate-y-1/2 hidden lg:block">
+        <SpaceshipHUD />
+      </div>
+
+      {/* === Right HUD (Status) === */}
+      <div className="absolute right-20 top-140 -translate-y-1/2 hidden lg:block">
+        <StatusHUD />
+      </div>
+
+      {/* === Main Content === */}
       <div className="max-w-3xl w-full px-8 sm:px-20 flex flex-col sm:flex-row items-center gap-2">
         {/* Text Section */}
         <div className="flex-1 space-y-4 sm:space-y-6">
@@ -102,28 +115,16 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
           >
-            <a
-              href="#"
-              className="text-white hover:text-green-400 transition-colors"
-            >
+            <a href="#" className="text-white hover:text-green-400 transition-colors">
               <Github />
             </a>
-            <a
-              href="#"
-              className="text-white hover:text-green-400 transition-colors"
-            >
+            <a href="#" className="text-white hover:text-green-400 transition-colors">
               <Linkedin />
             </a>
-            <a
-              href="#"
-              className="text-white hover:text-green-400 transition-colors"
-            >
+            <a href="#" className="text-white hover:text-green-400 transition-colors">
               <Twitter />
             </a>
-            <a
-              href="#"
-              className="text-white hover:text-green-400 transition-colors"
-            >
+            <a href="#" className="text-white hover:text-green-400 transition-colors">
               <Youtube />
             </a>
           </motion.div>

@@ -42,7 +42,7 @@ export default function SpaceshipHUD() {
   }, [barAnimations, indicators]);
 
   return (
-    <div className="fixed xl:flex flex-col top-65 left-10 z-50 pointer-events-none w-80 space-y-3 text-green-400 font-mono hidden">
+    <div className=" xl:flex flex-col z-50 pointer-events-none w-80 space-y-3 text-green-400 font-mono hidden">
       {/* Heading */}
       <h1 className="text-center">Detecting Problems In Codebase...</h1>
 
