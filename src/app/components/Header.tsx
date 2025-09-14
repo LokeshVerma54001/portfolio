@@ -14,7 +14,7 @@ export default function Header() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          🚀 STARSHIP UI
+          🚀 CodeShip UI
         </motion.h1>
 
         {/* Menu Items */}
