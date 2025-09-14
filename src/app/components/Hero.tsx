@@ -15,7 +15,7 @@ export default function Hero() {
   const [typing, setTyping] = useState(true);
 
   useEffect(() => {
-    let timeout;
+    let timeout: NodeJS.Timeout;
     const currentPhrase = phrases[phraseIndex];
 
     if (typing) {
