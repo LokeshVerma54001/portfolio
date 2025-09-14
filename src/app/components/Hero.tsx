@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
 
 // ✅ define once, outside the component
 const phrases = [
@@ -105,25 +106,25 @@ export default function Hero() {
               href="#"
               className="text-white hover:text-green-400 transition-colors"
             >
-              GitHub
+              <Github />
             </a>
             <a
               href="#"
               className="text-white hover:text-green-400 transition-colors"
             >
-              LinkedIn
+              <Linkedin />
             </a>
             <a
               href="#"
               className="text-white hover:text-green-400 transition-colors"
             >
-              Twitter
+              <Twitter />
             </a>
             <a
               href="#"
               className="text-white hover:text-green-400 transition-colors"
             >
-              YouTube
+              <Youtube />
             </a>
           </motion.div>
         </div>
