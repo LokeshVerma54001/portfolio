@@ -3,13 +3,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+// ✅ define once, outside the component
+const phrases = [
+  "A FullStack Developer",
+  "A Freelancer",
+  "3D/2D Artist/Illustrator",
+  "A UI/UX Explorer",
+];
+
 export default function Hero() {
-  const phrases = [
-    "A FullStack Devloper",
-    "A FreeLancer",
-    "3D/2D Artist/Illustrator",
-    "A UI/UX Explorer"
-  ];
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [typing, setTyping] = useState(true);
@@ -20,14 +22,19 @@ export default function Hero() {
 
     if (typing) {
       if (text.length < currentPhrase.length) {
-        timeout = setTimeout(() => setText(currentPhrase.slice(0, text.length + 1)), 100);
+        timeout = setTimeout(
+          () => setText(currentPhrase.slice(0, text.length + 1)),
+          100
+        );
       } else {
-        // Pause before deleting
         timeout = setTimeout(() => setTyping(false), 1000);
       }
     } else {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(currentPhrase.slice(0, text.length - 1)), 50);
+        timeout = setTimeout(
+          () => setText(currentPhrase.slice(0, text.length - 1)),
+          50
+        );
       } else {
         setTyping(true);
         setPhraseIndex((prev) => (prev + 1) % phrases.length);
@@ -39,7 +46,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center text-white">
-      {/* Grid/Control Panel Overlay */}
+      {/* Grid Overlay */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -47,9 +54,11 @@ export default function Hero() {
             linear-gradient(rgba(0,255,0,0.2) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0,255,0,0.2) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
-          maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.3) 50%)',
-          WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.3) 50%)'
+          backgroundSize: "40px 40px",
+          maskImage:
+            "radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.3) 50%)",
+          WebkitMaskImage:
+            "radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0.3) 50%)",
         }}
       />
 
@@ -74,7 +83,7 @@ export default function Hero() {
             Lokesh Verma
           </motion.h1>
 
-          {/* Typing effect line */}
+          {/* Typing Effect */}
           <motion.p
             className="text-lg sm:text-2xl text-white/80 font-mono"
             initial={{ opacity: 0 }}
@@ -85,21 +94,41 @@ export default function Hero() {
             <span className="border-r-2 border-green-400 ml-1 animate-pulse"></span>
           </motion.p>
 
-          {/* Social Icons */}
+          {/* Social Links */}
           <motion.div
             className="flex items-center gap-4 mt-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2 }}
           >
-            <a href="#" className="text-white hover:text-green-400 transition-colors">GitHub</a>
-            <a href="#" className="text-white hover:text-green-400 transition-colors">LinkedIn</a>
-            <a href="#" className="text-white hover:text-green-400 transition-colors">Twitter</a>
-            <a href="#" className="text-white hover:text-green-400 transition-colors">YouTube</a>
+            <a
+              href="#"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="#"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="#"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              Twitter
+            </a>
+            <a
+              href="#"
+              className="text-white hover:text-green-400 transition-colors"
+            >
+              YouTube
+            </a>
           </motion.div>
         </div>
 
-        {/* Image Section */}
+        {/* Profile Image */}
         <motion.div
           className="w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-green-400 shadow-[0_0_20px_#00ff00]"
           initial={{ scale: 0 }}
@@ -107,7 +136,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
         >
           <Image
-            src={'/cat.jpg'}
+            src={"/cat.jpg"}
             alt="Profile"
             width={256}
             height={256}
