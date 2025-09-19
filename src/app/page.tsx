@@ -8,7 +8,7 @@ export default function Home() {
     <div className="relative z-10 h-screen w-screen text-white">
       <Header />
       <Hero />
-      {/* <About /> */}
+      <About />
       <Contact />
     </div>
   );
