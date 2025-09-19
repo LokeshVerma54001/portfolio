@@ -23,7 +23,7 @@ export default function StatusHUD() {
   ];
 
   return (
-    <div className="fixed xl:flex flex-col hidden bottom-16 right-10 z-50 pointer-events-none w-64 space-y-4 text-green-400 font-mono">
+    <div className=" xl:flex flex-col hidden z-50 pointer-events-none w-64 space-y-4 text-green-400 font-mono">
       <h2 className="text-sm font-bold text-green-300 tracking-widest text-center">
         SHIP STATUS
       </h2>
